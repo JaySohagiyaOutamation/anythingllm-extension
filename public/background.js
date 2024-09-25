@@ -4,8 +4,8 @@ const ContextMenuModel = {
 
     if (workspaces && workspaces.length > 0) {
       chrome.contextMenus.create({
-        id: "saveToAnythingLLM",
-        title: "Save selected to AnythingLLM",
+        id: "saveToOutamationLLM",
+        title: "Save selected to OutamationLLM",
         contexts: ["selection"],
       });
 
@@ -16,8 +16,8 @@ const ContextMenuModel = {
       });
 
       chrome.contextMenus.create({
-        id: "saveEntirePageToAnythingLLM",
-        title: "Save entire page to AnythingLLM",
+        id: "saveEntirePageToOutamationLLM",
+        title: "Save entire page to OutamationLLM",
         contexts: ["page"],
       });
 
@@ -43,13 +43,13 @@ const ContextMenuModel = {
       });
     } else {
       chrome.contextMenus.create({
-        id: "saveToAnythingLLM",
-        title: "Save selected to AnythingLLM",
+        id: "saveToOutamationLLM",
+        title: "Save selected to OutamationLLM",
         contexts: ["selection"],
       });
       chrome.contextMenus.create({
-        id: "saveEntirePageToAnythingLLM",
-        title: "Save entire page to AnythingLLM",
+        id: "saveEntirePageToOutamationLLM",
+        title: "Save entire page to OutamationLLM",
         contexts: ["page"],
       });
     }
@@ -113,7 +113,7 @@ const ExtensionModel = {
     return;
   },
 
-  async saveToAnythingLLM(selectedText, pageTitle, pageUrl) {
+  async saveToOutamationLLM(selectedText, pageTitle, pageUrl) {
     const { apiBase, apiKey } = await chrome.storage.sync.get([
       "apiBase",
       "apiKey",
@@ -169,7 +169,7 @@ const ExtensionModel = {
     this.handleResponse(response, "embed content");
   },
 
-  async saveEntirePageToAnythingLLM(pageContent, pageTitle, pageUrl) {
+  async saveEntirePageToOutamationLLM(pageContent, pageTitle, pageUrl) {
     const { apiBase, apiKey } = await chrome.storage.sync.get([
       "apiBase",
       "apiKey",
@@ -244,7 +244,7 @@ const ExtensionModel = {
     } else {
       this.showNotification(
         "success",
-        "Successfully saved content to AnythingLLM."
+        "Successfully saved content to OutamationLLM."
       );
     }
   },
@@ -276,7 +276,7 @@ const ExtensionModel = {
 
     setTimeout(() => {
       chrome.action.setBadgeText({ text: "" });
-      chrome.action.setTitle({ title: "AnythingLLM Extension" });
+      chrome.action.setTitle({ title: "OutamationLLM Extension" });
     }, 5000);
   },
 };
@@ -314,8 +314,8 @@ function getPageContent(tabId) {
 }
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
-  if (info.menuItemId === "saveToAnythingLLM") {
-    ExtensionModel.saveToAnythingLLM(info.selectionText, tab.title, tab.url);
+  if (info.menuItemId === "saveToOutamationLLM") {
+    ExtensionModel.saveToOutamationLLM(info.selectionText, tab.title, tab.url);
     return;
   }
 
@@ -330,10 +330,10 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     return;
   }
 
-  if (info.menuItemId === "saveEntirePageToAnythingLLM") {
+  if (info.menuItemId === "saveEntirePageToOutamationLLM") {
     getPageContent(tab.id)
       .then((content) => {
-        ExtensionModel.saveEntirePageToAnythingLLM(content, tab.title, tab.url);
+        ExtensionModel.saveEntirePageToOutamationLLM(content, tab.title, tab.url);
       })
       .catch((error) => {
         console.error("Error getting page content:", error);
