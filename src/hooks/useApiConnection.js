@@ -58,8 +58,8 @@ export default function useApiConnection() {
   const fetchLogo = async () => {
     const { apiBase } = await chrome.storage.sync.get(["apiBase"]);
     if (!apiBase) return;
-    const { success, logoURL } = await BrowserExtension.fetchLogo(apiBase);
-    setLogoUrl(success ? logoURL : AnythingLLMLogo);
+    const  logoURL  = "https://outamation.com/wp-content/uploads/2022/01/hori-logo-1-e1657530120873-2048x522.png";
+    setLogoUrl(logoURL);
   };
 
   return { status, logoUrl, checkApiKeyStatus };
