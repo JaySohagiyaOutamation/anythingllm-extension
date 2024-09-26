@@ -5,7 +5,7 @@ const ContextMenuModel = {
     if (workspaces && workspaces.length > 0) {
       chrome.contextMenus.create({
         id: "saveToOutamationAI",
-        title: "Save selected to OutamationAI",
+        title: "Save selected to Outamation AI",
         contexts: ["selection"],
       });
 
@@ -17,7 +17,7 @@ const ContextMenuModel = {
 
       chrome.contextMenus.create({
         id: "saveEntirePageToOutamationAI",
-        title: "Save entire page to OutamationAI",
+        title: "Save entire page to Outamation AI",
         contexts: ["page"],
       });
 
@@ -44,12 +44,12 @@ const ContextMenuModel = {
     } else {
       chrome.contextMenus.create({
         id: "saveToOutamationAI",
-        title: "Save selected to OutamationAI",
+        title: "Save selected to Outamation AI",
         contexts: ["selection"],
       });
       chrome.contextMenus.create({
         id: "saveEntirePageToOutamationAI",
-        title: "Save entire page to OutamationAI",
+        title: "Save entire page to Outamation AI",
         contexts: ["page"],
       });
     }

@@ -1,11 +1,11 @@
 # AnythingLLM Chrome Extension
 
 <p align="center">
-  <img src="src/media/anything-llm.png" alt="OutamationAI Chrome Extension logo" width="200">
+  <img src="src/media/anything-llm.png" alt="Outamation AI Chrome Extension logo" width="200">
 </p>
 
 <p align="center">
-  Seamlessly integrate OutamationAI into Google Chrome.
+  Seamlessly integrate Outamation AI into Google Chrome.
 </p>
 
 <p align="center">
